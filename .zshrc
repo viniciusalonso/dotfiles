@@ -17,8 +17,8 @@ alias vimconfig='$EDITOR ~/.vimrc'
 
 # Online
 alias wiki='$BROWSER http://alonso.pbworks.com'
-alias whatsapp='$EDITOR https://web.whatsapp.com'
-alias skype='$EDITOR https://web.skype.com'
+alias whatsapp='$BROWSER https://web.whatsapp.com'
+alias skype='$BROWSER https://web.skype.com'
 
 setopt HIST_IGNORE_ALL_DUPS
 
