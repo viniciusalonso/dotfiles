@@ -15,3 +15,9 @@ set autoindent
 set hlsearch
 
 map <c-p> <ESC>:FZF<CR>
+map <SPACE><SPACE> <ESC>:w<CR>
+noremap <C-c> <ESC>:q!<CR>
+map <c-r> <ESC>:NERDTreeFind<CR>
+map <c-Left> gT
+map <c-Right> gt
+map <c-T> <ESC>:tabnew<CR>
