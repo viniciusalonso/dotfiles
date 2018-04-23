@@ -1,4 +1,4 @@
-ZSH_THEME="robbyrussell"
+ZSH_THEME="geoffgarside"
 
 plugins=(
   git
@@ -18,8 +18,8 @@ export BROWSER=google-chrome
 export EDITOR=vim
 
 # Config
-alias zshconfig='$EDITOR ~/.zshrc && source ~/.zshrc'
-alias vimconfig='$EDITOR ~/.vimrc'
+alias zshrc='$EDITOR ~/.zshrc && source ~/.zshrc'
+alias vimrc='$EDITOR ~/.vimrc'
 
 # Online
 alias wiki='$BROWSER http://alonso.pbworks.com'
