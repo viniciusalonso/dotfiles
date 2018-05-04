@@ -22,3 +22,13 @@ map <c-r> <ESC>:NERDTreeFind<CR>
 map <c-Left> gT
 map <c-Right> gt
 map <c-T> <ESC>:tabnew<CR>
+
+noremap <Up> <NOP>
+noremap <Down> <NOP>
+noremap <Left> <NOP>
+noremap <Right> <NOP>
+
+imap <Up> <NOP>
+imap <Down> <NOP>
+imap <Left> <NOP>
+imap <Right> <NOP>
