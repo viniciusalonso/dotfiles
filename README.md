@@ -7,6 +7,7 @@ These are my personal dotfiles that I use to improve my daily routine as softwar
 Below are some tools that I've use.
 
 * [zsh and oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh/wiki)
+* [zsh pluggins](https://github.com/robbyrussell/oh-my-zsh/wiki/Plugins)
 
 ## Packages
 
@@ -15,6 +16,7 @@ My favorites packages and libs. Currently I use Ubuntu as my OS, but on the next
 * [googler](https://github.com/jarun/googler)
 * [ack](https://beyondgrep.com/install/)
 * [translate-shell](https://github.com/soimort/translate-shell)
+* [httpie](https://httpie.org/)
 
 
 ## TODO
