@@ -2,7 +2,10 @@ call plug#begin('~/.vim/plugged')
   Plug 'scrooloose/nerdtree'
   Plug 'junegunn/fzf'
   Plug 'dyng/ctrlsf.vim'
+  Plug 'tpope/vim-fugitive'
   Plug 'tpope/vim-commentary'
+  Plug 'bling/vim-airline'
+  Plug 'valloric/youcompleteme'
 call plug#end()
 
 syntax on
