@@ -17,6 +17,7 @@ My favorites packages and libs. Currently I use Ubuntu as my OS, but on the next
 * [ack](https://beyondgrep.com/install/)
 * [translate-shell](https://github.com/soimort/translate-shell)
 * [httpie](https://httpie.org/)
+* [copyq](https://hluk.github.io/CopyQ/)
 
 
 ## TODO
