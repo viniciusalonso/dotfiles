@@ -9,9 +9,9 @@ then
   printf "Removing your vim files \n"
   rm $HOME/.vimrc 2> /dev/null
   rm -rf $HOME/.vim 2> /dev/null
-  
+
   printf "Creating symbolik links between vim files \n"
-  
+
   ln -s DOTFILES_PATH/.vimrc $HOME/.vimrc
   ln -s DOTFILES_PATH/.vim $HOME/.vim
 
@@ -19,7 +19,7 @@ then
 
   curl ~/.vim/autoload/plug.vim --create-dirs \
      https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
- 
+
   printf "Instaling dependencies \n"
 
   sudo apt-get install -y build-essential cmake cmake3 python-dev 2> /dev/null
