@@ -6,6 +6,12 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-commentary'
   Plug 'bling/vim-airline'
   Plug 'valloric/youcompleteme'
+  Plug 'jwalton512/vim-blade'
+  Plug 'posva/vim-vue'
+  Plug 'airblade/vim-gitgutter'
+  Plug 'mattn/emmet-vim'
+  Plug 'ntpeters/vim-better-whitespace'
+  Plug 'mileszs/ack.vim'
 call plug#end()
 
 syntax on
@@ -18,6 +24,9 @@ set shiftwidth=4
 set autoindent
 set hlsearch
 
+let g:gitgutter_enabled = 1
+let b:did_indent = 1
+
 map <c-p> <ESC>:FZF<CR>
 map <SPACE><SPACE> <ESC>:w<CR>
 noremap <C-c> <ESC>:q!<CR>
@@ -25,6 +34,8 @@ map <c-r> <ESC>:NERDTreeFind<CR>
 map <c-Left> gT
 map <c-Right> gt
 map <c-T> <ESC>:tabnew<CR>
+map <c-l> <ESC>:NERDTreeToggle<CR>
+map mm <ESC>:noh<CR>
 
 noremap <Up> <NOP>
 noremap <Down> <NOP>
