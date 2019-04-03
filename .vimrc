@@ -26,6 +26,11 @@ call plug#begin('~/.vim/plugged')
   Plug 'jiangmiao/auto-pairs'
   Plug 'terryma/vim-multiple-cursors'
   Plug 'sheerun/vim-polyglot'
+  Plug 'RRethy/vim-illuminate'
+  Plug 'lifepillar/vim-mucomplete'
+  Plug 'alvan/vim-closetag'
+  Plug 'vim-scripts/loremipsum'
+  Plug 'rhysd/vim-grammarous'
 call plug#end()
 
 syntax on
@@ -43,10 +48,14 @@ set splitbelow
 set nobackup
 set wildmenu
 set wildmode=full
+set belloff=all
+set noswapfile
 
 let g:indentLine_setColors = 1
 let g:ale_completion_enabled = 1
 let g:vue_disable_pre_processors = 1
+let NERDTreeShowHidden=1
+let NERDTreeIgnore = ['\.git$', '\.git-crypt$', 'node_modules', 'vendor', '*.swp']
 
 autocmd FileType vue syntax sync fromstart
 
@@ -60,6 +69,8 @@ map <c-T> <ESC>:tabnew<CR>
 map <C-l>  <ESC>:NERDTreeToggle<CR>
 map mm <ESC>:noh<CR>
 map <c-k> <ESC>:TagbarToggle<CR>
+map li <ESC>:Loremipsum<CR>
+map mk <ESC>:%s/\s\+$//e<CR>
 
 noremap <Up> <NOP>
 noremap <Down> <NOP>

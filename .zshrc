@@ -5,16 +5,19 @@ ZSH_TMUX_AUTOSTART="true"
 plugins=(
   git
   docker
-  Composer
   history
   web-search
+  dnf
+  zsh-syntax-highlighting
+  #zsh-autosuggestions
+  bgnotify
 )
 
 source $ZSH/oh-my-zsh.sh
 
 # Letsgrow
-export CURRENT_PROJECT_PATH=$HOME/Projects/allie/project
-export CURRENT_PROJECT_MAIN_BRANCH='origin/develop'
+export CURRENT_PROJECT_PATH=$HOME/Projects/bitblue
+export CURRENT_PROJECT_MAIN_BRANCH='origin/master'
 
 alias send-pr='send_pull_request'
 
@@ -45,13 +48,17 @@ alias cr='c remove'
 # Docker
 alias dc='docker-compose'
 alias rollback='dc run --rm app php artisan migrate:rollback'
+alias routes="dc run --rm app php artisan route:list"
 alias migrate='dc run --rm app php artisan migrate'
 alias tinker='dc run --rm app php artisan tinker'
 alias assets_compile='assets_compile_run'
 alias artisan='dc run --rm app php artisan'
+alias cauto='dc run --rm app composer dumpautoload -o'
+alias dcra='dc run app'
+alias dcrf='dc run front'
+alias queue='dcra php artisan queue:work --queue=email,default,join-email'
 
 # Git alias
-
 alias gucb='git_update_current_branch'
 alias gpcb='git_push_current_branch'
 alias gs='git status'
@@ -61,8 +68,11 @@ alias gk='git checkout'
 alias gf='git fetch'
 alias gst='git stash'
 alias gr='git rebase'
+alias grc='gr --continue'
+alias gra='gr --abort'
 alias gcm='gc -m'
 alias gpcbf='git_push_current_branch_forced'
+alias gdb="git_diff_commits_between_branches"
 
 # Laravel alias
 alias pa='php artisan'
@@ -76,9 +86,15 @@ alias v='$EDITOR'
 alias stop='stop_services'
 alias start='start_services'
 
+
 # Running tests
 alias t='./vendor/bin/phpunit'
 alias td='pa dusk'
+
+# ssh
+
+# tmux
+alias tmux.conf='vim ~/.tmux.conf'
 
 # Golang
 export PATH=$PATH:/usr/local/go/bin
@@ -103,7 +119,7 @@ git_push_current_branch_forced() {
 }
 
 get_pull_request_url() {
-  base='https://bitbucket.org/letsgrow/allie/pull-requests/new?source='
+  base='https://bitbucket.org/letsgrow/bitblue-admin/pull-requests/new?source='
   branch=$(git symbolic-ref --short HEAD 2> /dev/null)
   final="&t=1"
   echo "$base$branch$final"
@@ -114,6 +130,14 @@ send_pull_request() {
   gr $CURRENT_PROJECT_MAIN_BRANCH
   gpcb
   $BROWSER $(get_pull_request_url)
+}
+
+da() {
+    dc run --rm $1 php artisan $2 $3 $4
+}
+
+dm() {
+    dc run --rm $1 $2 $3 $4 $5 $6
 }
 
 send_pull_request_release() {
@@ -159,3 +183,20 @@ show_task() {
 show_notify() {
   notify-send -i ~/Downloads/lets.png $1 $2
 }
+
+git_diff_commits_between_branches() {
+    #git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative $1..$2
+    git log --graph --pretty=format:'%h' --no-patch --abbrev-commit --date=relative $1..$2
+}
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
+source ~/.rvm/scripts/rvm
+
+# Linux
+if [ -d "$HOME/.local/bin"  ] ; then
+    PATH="$HOME/.local/bin:$PATH"
+fi
+
+# conectar no psql
+#docker run --rm --network bitblue_default -it bitblue_postgres psql -U postgres -h postgres
